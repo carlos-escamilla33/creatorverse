@@ -10,10 +10,8 @@
 }
 
 .creator-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2, 100%);
-    color: white;
-  border-radius: 5px;
-  padding: 1.5rem;
+  border-radius: 15px;
+  padding: 1.3rem;
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -21,4 +19,11 @@
 .creator-card:hover {
   transform: scale(1.02);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.creator-avatar img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
 }
