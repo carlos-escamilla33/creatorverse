@@ -1,24 +1,31 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.content-card-container {
-  display: "grid";
+
+.content-card-container{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .creator-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 380px;
+  width: 380px;
+  align-items: center;
   border-radius: 15px;
   padding: 1.3rem;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.creator-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.creator-avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
 }
 
 .creator-avatar img{

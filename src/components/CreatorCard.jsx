@@ -10,9 +10,9 @@ const CreatorCard = ({ creator }) => {
             e.target.src = "https://via.placeholder.com/150?text=No+Image";
           }}
         />
+        <p>{creator.name}</p>
+        <p>{creator.description}</p>
       </header>
-      <header>{creator.name}</header>
-      {creator.description}
       <footer>
         <a href={creator.url}>Visit Channel →</a>
       </footer>

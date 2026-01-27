@@ -30,13 +30,13 @@ const testCreators = [
     name: "Mr Beast",
     url: "https://www.youtube.com/@MindTheGamePodcast",
     description:
-      "Mind The Game is an entry into the heralded basketball minds of LeBron James and Steve Nash. The two sit down every other Tuesday to discuss the state of the game, dissect X’s and O’s, and wax poetic about the game they love.",
+      "Mind The Game is an entry into the heralded basketball minds of LeBron James and Steve Nash.",
   },
 ];
 
 const ShowCreators = () => {
   return (
-    <section className="creator-card-container">
+    <section className="content-card-container">
       {testCreators.map(testCreator => {
         return (
             <CreatorCard key={testCreator.id} creator={testCreator} />
