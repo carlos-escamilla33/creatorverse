@@ -1,4 +1,5 @@
 import './App.css';
+import {Routes, Route} from "react-router-dom";
 import ShowCreators from './pages/ShowCreators';
 import '@picocss/pico/css/pico.min.css';
 
@@ -6,7 +7,9 @@ function App() {
 
   return (
     <>
-     <ShowCreators />
+      <Routes>
+        <Route path="/" element={<ShowCreators />} />
+      </Routes>
     </>
   )
 }
