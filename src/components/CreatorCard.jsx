@@ -1,12 +1,10 @@
 const CreatorCard = ({creator}) => {
 
   return (
-    <article>
+    <article className="creator-card">
       <header>{creator.name}</header>
       {creator.description}
-      <div>
-        <footer>{creator.url}</footer>
-      </div>
+      <footer><a href={creator.url}>Visit Channel →</a></footer>
     </article>
   );
 };

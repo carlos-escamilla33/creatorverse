@@ -36,7 +36,7 @@ const testCreators = [
 
 const ShowCreators = () => {
   return (
-    <section>
+    <section className="creator-card-container">
       {testCreators.map(testCreator => {
         return (
             <CreatorCard key={testCreator.id} creator={testCreator} />
