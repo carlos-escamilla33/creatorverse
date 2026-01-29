@@ -4,15 +4,21 @@ import { CreatorContext } from "./CreatorContext";
 export const CreatorProvider = ({ children }) => {
     const [creatorName, setCreatorName] = useState("");
     const [youtubeURL, setYoutubeURL] = useState("");
+    const [twitterURL, setTwitterURL] = useState("");
     const [instagramURL, setInstagramURL] = useState("");
+    const [description, setDescription] = useState("");
 
     const value = {
         creatorName,
         setCreatorName,
         youtubeURL,
         setYoutubeURL,
+        twitterURL,
+        setTwitterURL,
         instagramURL,
-        setInstagramURL
+        setInstagramURL,
+        description,
+        setDescription
     }
 
     return (
