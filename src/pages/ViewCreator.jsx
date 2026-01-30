@@ -1,7 +1,10 @@
+import CreatorCard from "../components/CreatorCard";
+import { useCreator } from "../hooks/useCreators";
 
 const ViewCreator = () => {
+    const {currentCreator} = useCreator();
     return (
-        <h1>View Creator Page</h1>
+        <CreatorCard key={currentCreator.id} creator={currentCreator}/>
     )
 }
 

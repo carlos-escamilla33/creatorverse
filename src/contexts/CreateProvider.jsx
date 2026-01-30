@@ -8,6 +8,7 @@ export const CreatorProvider = ({ children }) => {
     const [instagramURL, setInstagramURL] = useState("");
     const [description, setDescription] = useState("");
     const [creators, setCreators] = useState([]);
+    const [currentCreator, setCurrentCreator] = useState({});
 
     const value = {
         creatorName,
@@ -21,7 +22,9 @@ export const CreatorProvider = ({ children }) => {
         description,
         setDescription,
         creators,
-        setCreators
+        setCreators,
+        currentCreator,
+        setCurrentCreator
     }
 
     return (

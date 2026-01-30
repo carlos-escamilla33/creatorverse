@@ -1,7 +1,15 @@
+import { useCreator } from "../hooks/useCreators";
+
 const CreatorCard = ({ creator }) => {
   const username = creator.url.match(/@([^/]+)/)?.[1];
+  const {setCurrentCreator} = useCreator();
+  
+  const handleClick = (creator) => {
+    setCurrentCreator(creator);
+    console.log(creator);
+  }
   return (
-    <article className="creator-card">
+    <article className="creator-card" onClick={() => handleClick(creator)}>
       <header className="creator-avatar">
         <img
           src={`https://unavatar.io/youtube/${username}`}
