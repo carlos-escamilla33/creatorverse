@@ -7,6 +7,7 @@ export const CreatorProvider = ({ children }) => {
     const [twitterURL, setTwitterURL] = useState("");
     const [instagramURL, setInstagramURL] = useState("");
     const [description, setDescription] = useState("");
+    const [creators, setCreators] = useState([]);
 
     const value = {
         creatorName,
@@ -18,7 +19,9 @@ export const CreatorProvider = ({ children }) => {
         instagramURL,
         setInstagramURL,
         description,
-        setDescription
+        setDescription,
+        creators,
+        setCreators
     }
 
     return (
