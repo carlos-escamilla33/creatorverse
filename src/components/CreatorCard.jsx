@@ -1,12 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { useCreator } from "../hooks/useCreators";
+import { FaRegEdit } from "react-icons/fa";
 
 const CreatorCard = ({ creator }) => {
   const username = creator.url.match(/@([^/]+)/)?.[1];
   const {setCurrentCreator} = useCreator();
-  
+  const navigate = useNavigate();
+
   const handleClick = (creator) => {
     setCurrentCreator(creator);
     console.log(creator);
+  }
+
+  const handleEditClick = (e) => {
+    e.preventDefault();
+    navigate("/edit-creator");
   }
   return (
     <article className="creator-card" onClick={() => handleClick(creator)}>
@@ -24,6 +32,7 @@ const CreatorCard = ({ creator }) => {
       <footer>
         <a href={creator.url}>Visit Channel →</a>
       </footer>
+      <FaRegEdit onClick={handleEditClick}/>
     </article>
   );
 };
