@@ -13,6 +13,8 @@ const AddCreator = () => {
     description,
     setDescription,
     setCurrentCreator,
+    setCreators,
+    creators,
   } = useCreator();
 
   const navigate = useNavigate();
@@ -52,8 +54,9 @@ const AddCreator = () => {
             description: newCreator.description,
           })
           .select();
-          console.log(data[0]);
+        console.log(data[0]);
         if (data[0]) {
+          setCreators([...creators, data[0]]);
           setCurrentCreator(data[0]);
         } else {
           throw error;
