@@ -4,18 +4,23 @@ import { FaRegEdit } from "react-icons/fa";
 
 const CreatorCard = ({ creator }) => {
   const username = creator.url.match(/@([^/]+)/)?.[1];
-  const {setCurrentCreator} = useCreator();
+  const { setCurrentCreator, setCreatorName, setYoutubeURL, setDescription } =
+    useCreator();
   const navigate = useNavigate();
 
   const handleClick = (creator) => {
     setCurrentCreator(creator);
     console.log(creator);
-  }
+  };
 
   const handleEditClick = (creator) => {
     setCurrentCreator(creator);
+    setCreatorName(creator.name);
+    setYoutubeURL(creator.url);
+    setDescription(creator.description);
+    setCurrentCreator(creator);
     navigate("/edit-creator");
-  }
+  };
   return (
     <article className="creator-card" onClick={() => handleClick(creator)}>
       <header className="creator-avatar">
@@ -32,7 +37,7 @@ const CreatorCard = ({ creator }) => {
       <footer>
         <a href={creator.url}>Visit Channel →</a>
       </footer>
-      <FaRegEdit onClick={() => handleEditClick(creator)}/>
+      <FaRegEdit onClick={() => handleEditClick(creator)} />
     </article>
   );
 };
