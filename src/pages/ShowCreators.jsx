@@ -1,5 +1,6 @@
 import CreatorCard from "../components/CreatorCard";
 import { useCreator } from "../hooks/useCreators";
+import HeaderSection from "../components/HeaderSection";
 
 // const testCreators = [
 //   {
@@ -37,8 +38,10 @@ import { useCreator } from "../hooks/useCreators";
 
 const ShowCreators = () => {
   const { creators } = useCreator();
+
   return (
     <section className="content-card-container">
+      <HeaderSection />
       {creators ? (
         <p>No Data Available...</p>
       ) : (
