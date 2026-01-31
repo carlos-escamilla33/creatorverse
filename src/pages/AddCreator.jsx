@@ -5,39 +5,19 @@ import { useNavigate } from "react-router-dom";
 const AddCreator = () => {
   const {
     creatorName,
-    setCreatorName,
     youtubeURL,
-    setYoutubeURL,
-    setTwitterURL,
-    setInstagramURL,
     description,
-    setDescription,
     setCurrentCreator,
     setCreators,
     creators,
+    handleCreatorNameChange,
+    handleYouTubeURLChange,
+    handleTwitterURLChange,
+    handleInstagramURLChange,
+    handleDescriptionChange,
   } = useCreator();
 
   const navigate = useNavigate();
-
-  const handleCreatorNameChange = (e) => {
-    setCreatorName(e.target.value);
-  };
-
-  const handleYouTubeURLChange = (e) => {
-    setYoutubeURL(e.target.value);
-  };
-
-  const handleTwitterURLChange = (e) => {
-    setTwitterURL(e.target.value);
-  };
-
-  const handleInstagramURLChange = (e) => {
-    setInstagramURL(e.target.value);
-  };
-
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

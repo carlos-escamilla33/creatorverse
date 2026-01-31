@@ -12,8 +12,8 @@ const CreatorCard = ({ creator }) => {
     console.log(creator);
   }
 
-  const handleEditClick = (e) => {
-    e.preventDefault();
+  const handleEditClick = (creator) => {
+    setCurrentCreator(creator);
     navigate("/edit-creator");
   }
   return (
@@ -32,7 +32,7 @@ const CreatorCard = ({ creator }) => {
       <footer>
         <a href={creator.url}>Visit Channel →</a>
       </footer>
-      <FaRegEdit onClick={handleEditClick}/>
+      <FaRegEdit onClick={() => handleEditClick(creator)}/>
     </article>
   );
 };
