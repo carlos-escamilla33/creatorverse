@@ -8,7 +8,7 @@ const HeaderSection = () => {
     }
     return (
         <section>
-            <input type="submit" onClick={handleAddCreatorClick}/>
+            <button className="outline" onClick={handleAddCreatorClick}>Add Creator</button>
         </section>
     )
 }

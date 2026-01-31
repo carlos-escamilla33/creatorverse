@@ -12,8 +12,9 @@ function App() {
   useEffect(() => {
     const fetchCreators = async () => {
       try {
-        const creatorsData = await supabase.from("creators").select();
-        setCreators(creatorsData);
+        const {data} = await supabase.from("creators").select();
+        console.log(data);
+        setCreators(data);
       } catch (err) {
         console.log(err);
       }

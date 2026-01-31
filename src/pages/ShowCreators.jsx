@@ -42,7 +42,7 @@ const ShowCreators = () => {
   return (
     <section className="content-card-container">
       <HeaderSection />
-      {creators ? (
+      {creators.length == 0 ? (
         <p>No Data Available...</p>
       ) : (
         creators.map((creator) => {

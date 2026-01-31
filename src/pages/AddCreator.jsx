@@ -1,43 +1,111 @@
+import { supabase } from "../client";
 import { useCreator } from "../hooks/useCreators";
+import { useNavigate } from "react-router-dom";
 
 const AddCreator = () => {
-    const {setCreatorName, setYoutubeURL, setTwitterURL, setInstagramURL, setDescription} = useCreator();
+  const {
+    creatorName,
+    setCreatorName,
+    youtubeURL,
+    setYoutubeURL,
+    setTwitterURL,
+    setInstagramURL,
+    description,
+    setDescription,
+    setCurrentCreator,
+  } = useCreator();
 
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-    }
+  const navigate = useNavigate();
 
-    const handleCreatorNameChange = (e) => {
-        setCreatorName(e.target.value)
-    }
+  const handleCreatorNameChange = (e) => {
+    setCreatorName(e.target.value);
+  };
 
-    const handleYouTubeURLChange = (e) => {
-        setYoutubeURL(e.target.value);
-    }
+  const handleYouTubeURLChange = (e) => {
+    setYoutubeURL(e.target.value);
+  };
 
-    const handleTwitterURLChange = (e) => {
-        setTwitterURL(e.target.value);
-    }
+  const handleTwitterURLChange = (e) => {
+    setTwitterURL(e.target.value);
+  };
 
-    const handleInstagramURLChange = (e) => {
-        setInstagramURL(e.target.value);
-    }
+  const handleInstagramURLChange = (e) => {
+    setInstagramURL(e.target.value);
+  };
 
-    const handleDescriptionChange = (e) => {
-        setDescription(e.target.value);
-    }
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
 
-    return (
-        <form className="container" onSubmit={handleFormSubmit}>
-            <h1>Add Creator</h1>
-            <input type="text" name="name" placeholder="Creator Name" aria-label="Text" onChange={handleCreatorNameChange}/>
-            <input type="text" name="Youtube url" placeholder="Youtube URL" aria-label="Text" onChange={handleYouTubeURLChange}/>
-            <input type="text" name="Twitter url" placeholder="Twitter URL" aria-label="Text" onChange={handleTwitterURLChange}/>
-            <input type="text" name="Instagram url" placeholder="Instagram URL" aria-label="Text" onChange={handleInstagramURLChange}/>
-            <textarea name="description" placeholder="Write a short description of your creator..." aria-label="Short description" onChange={handleDescriptionChange}/>
-            <input type="submit"/>
-        </form>
-    )
-}
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    const newCreator = { name: creatorName, url: youtubeURL, description };
+
+    const insertCreator = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("creators")
+          .insert({
+            name: newCreator.name,
+            url: newCreator.url,
+            description: newCreator.description,
+          })
+          .select();
+          console.log(data[0]);
+        if (data[0]) {
+          setCurrentCreator(data[0]);
+        } else {
+          throw error;
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    insertCreator();
+    navigate("/");
+  };
+
+  return (
+    <form className="container" onSubmit={handleFormSubmit}>
+      <h1>Add Creator</h1>
+      <input
+        type="text"
+        name="name"
+        placeholder="Creator Name"
+        aria-label="Text"
+        onChange={handleCreatorNameChange}
+      />
+      <input
+        type="text"
+        name="Youtube url"
+        placeholder="Youtube URL"
+        aria-label="Text"
+        onChange={handleYouTubeURLChange}
+      />
+      <input
+        type="text"
+        name="Twitter url"
+        placeholder="Twitter URL"
+        aria-label="Text"
+        onChange={handleTwitterURLChange}
+      />
+      <input
+        type="text"
+        name="Instagram url"
+        placeholder="Instagram URL"
+        aria-label="Text"
+        onChange={handleInstagramURLChange}
+      />
+      <textarea
+        name="description"
+        placeholder="Write a short description of your creator..."
+        aria-label="Short description"
+        onChange={handleDescriptionChange}
+      />
+      <input type="submit" />
+    </form>
+  );
+};
 
 export default AddCreator;
