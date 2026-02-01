@@ -86,7 +86,6 @@ const EditCreator = () => {
   };
 
   const handleIsDeleteClick = () => {
-    console.log("delete button clicked")
     setIsDeleteBtn(true);
   };
 
