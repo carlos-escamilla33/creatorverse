@@ -10,7 +10,7 @@ const CreatorCard = ({ creator }) => {
 
   const handleClick = (creator) => {
     setCurrentCreator(creator);
-    console.log(creator);
+    navigate("/view-creator");
   };
 
   const handleEditClick = (creator) => {

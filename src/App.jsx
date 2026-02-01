@@ -1,10 +1,10 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { ShowCreators, AddCreator, EditCreator, HeaderSection, ViewCreator } from "./pages/index";
-import "@picocss/pico/css/pico.min.css";
 import { supabase } from "./client";
 import { useEffect } from "react";
 import { useCreator } from "./hooks/useCreators";
+import "@picocss/pico/css/pico.min.css";
 
 function App() {
   const { setCreators } = useCreator();
