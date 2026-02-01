@@ -40,16 +40,18 @@ const ShowCreators = () => {
   const { creators } = useCreator();
 
   return (
-    <section className="content-card-container">
+    <div>
       <HeaderSection />
-      {creators.length == 0 ? (
-        <p>No Data Available...</p>
-      ) : (
-        creators.map((creator) => {
-          return <CreatorCard key={creator.id} creator={creator} />;
-        })
-      )}
-    </section>
+      <section className="content-card-container">
+        {creators.length == 0 ? (
+          <p>No Data Available...</p>
+        ) : (
+          creators.map((creator) => {
+            return <CreatorCard key={creator.id} creator={creator} />;
+          })
+        )}
+      </section>
+    </div>
   );
 };
 

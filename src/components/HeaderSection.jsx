@@ -7,7 +7,10 @@ const HeaderSection = () => {
         navigate("/add-creator");
     }
     return (
-        <section>
+        <section className="container-fluid header-section">
+            <div>
+                <h1>Creatorverse</h1>
+            </div>
             <button className="outline" onClick={handleAddCreatorClick}>Add Creator</button>
         </section>
     )
