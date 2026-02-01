@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import creatorImg from "../assets/creator.png";
 
 const HeaderSection = () => {
@@ -9,9 +9,9 @@ const HeaderSection = () => {
     }
     return (
         <section className="container-fluid header-section">
-            <div>
+            <NavLink to="/">
                 <img src={creatorImg} alt="" />
-            </div>
+            </NavLink>
             <button className="add-creator-btn" onClick={handleAddCreatorClick}>Add Creator</button>
         </section>
     )
