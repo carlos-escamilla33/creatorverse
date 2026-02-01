@@ -90,7 +90,7 @@ const EditCreator = () => {
   };
 
   return (
-    <form className="container" onSubmit={handleEditFormSubmission}>
+    <form className="container edit-creator-component" onSubmit={handleEditFormSubmission}>
       <h1>Edit Creator</h1>
       <input
         type="text"
@@ -124,6 +124,7 @@ const EditCreator = () => {
       />
       <textarea
         name="description"
+        type="text"
         placeholder="Write a short description of your creator..."
         aria-label="Short description"
         onChange={handleDescriptionChange}
@@ -133,7 +134,7 @@ const EditCreator = () => {
       <input
         type="submit"
         value="Delete"
-        className="outline secondary"
+        id="delete-creator-btn"
         onClick={handleIsDeleteClick}
       />
     </form>
