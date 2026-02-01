@@ -33,6 +33,6 @@
 /* =========================
    Global Layout
 ========================= */
-body {
+html, body {
   background-color: var(--background-color);
 }

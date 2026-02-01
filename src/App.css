@@ -97,3 +97,18 @@
 .add-creator-btn:hover {
   background-color: #213448
 }
+
+/* Add creator component styling */
+
+.add-creator-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+}
+
+.add-creator-component input[type="text"], textarea[type="text"] {
+  background-color: white;
+  border: none;
+}

@@ -50,7 +50,7 @@ const AddCreator = () => {
   };
 
   return (
-    <form className="container" onSubmit={handleFormSubmit}>
+    <form className="container add-creator-component" onSubmit={handleFormSubmit}>
       <h1>Add Creator</h1>
       <input
         type="text"
@@ -82,6 +82,7 @@ const AddCreator = () => {
       />
       <textarea
         name="description"
+        type="text"
         placeholder="Write a short description of your creator..."
         aria-label="Short description"
         onChange={handleDescriptionChange}
