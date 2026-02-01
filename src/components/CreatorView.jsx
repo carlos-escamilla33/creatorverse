@@ -1,4 +1,4 @@
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const CreatorView = ({ creator }) => {
   const username = creator.url.match(/@([^/]+)/)?.[1];
@@ -12,11 +12,21 @@ const CreatorView = ({ creator }) => {
             e.target.src = "https://via.placeholder.com/150?text=No+Image";
           }}
         />
-        <p>{creator.name}</p>
-        <a href={creator.url}><FaYoutube size={35}/></a>
+        <h3>{creator.name}</h3>
+        <div className="creator-view-socials">
+          <a href={creator.url}>
+            <FaYoutube size={35} />
+          </a>
+          <a href={creator.url}>
+            <FaTwitter size={35} />
+          </a>
+          <a href={creator.url}>
+            <FaInstagram size={35} />
+          </a>
+        </div>
       </div>
       <div className="creator-view-info-container">
-          <p>{creator.description}</p>
+        <p>{creator.description}</p>
       </div>
     </div>
   );

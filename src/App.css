@@ -182,3 +182,13 @@
   object-fit: cover;
   padding: 15px;
 }
+
+.creator-view-socials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creator-view-socials a {
+  padding: 10px;
+}
