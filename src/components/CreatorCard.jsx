@@ -22,8 +22,8 @@ const CreatorCard = ({ creator }) => {
     navigate("/edit-creator");
   };
   return (
-    <article className="creator-card" onClick={() => handleClick(creator)}>
-      <header className="creator-avatar">
+    <div className="creator-card" onClick={() => handleClick(creator)}>
+      <div className="creator-avatar">
         <img
           src={`https://unavatar.io/youtube/${username}`}
           alt={`${creator.name} avatar`}
@@ -33,12 +33,12 @@ const CreatorCard = ({ creator }) => {
         />
         <p>{creator.name}</p>
         <p>{creator.description}</p>
-      </header>
-      <footer>
-        <a href={creator.url}>Visit Channel →</a>
-      </footer>
-      <FaRegEdit onClick={() => handleEditClick(creator)} />
-    </article>
+      </div>
+      <div className="card-footer">
+        <a href={creator.url}>Visit YouTube Channel →</a>
+        <FaRegEdit onClick={() => handleEditClick(creator)} />
+      </div>
+    </div>
   );
 };
 

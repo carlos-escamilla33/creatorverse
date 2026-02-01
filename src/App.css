@@ -42,13 +42,21 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.creator-card footer {
-  background-color: var(--card-background-color);
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.creator-card footer a {
+.creator-card a {
   color: var(--muted-color);
   text-decoration: none;
+}
+
+.creator-card a:hover {
+  color: #213448;
+  text-decoration: underline;
 }
 
 .creator-avatar {
@@ -79,7 +87,7 @@
 }
 
 .add-creator-btn:hover {
-  background-color: #213448
+  background-color: #213448;
 }
 
 /* Add creator component styling */
