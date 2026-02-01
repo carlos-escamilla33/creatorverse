@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCreator } from "../hooks/useCreators";
-import { FaRegEdit } from "react-icons/fa";
+import { FaInfoCircle, FaRegEdit } from "react-icons/fa";
 
 const CreatorCard = ({ creator }) => {
   const username = creator.url.match(/@([^/]+)/)?.[1];
@@ -22,7 +22,7 @@ const CreatorCard = ({ creator }) => {
     navigate("/edit-creator");
   };
   return (
-    <div className="creator-card" onClick={() => handleClick(creator)}>
+    <div className="creator-card">
       <div className="creator-avatar">
         <img
           src={`https://unavatar.io/youtube/${username}`}
@@ -32,11 +32,10 @@ const CreatorCard = ({ creator }) => {
           }}
         />
         <p>{creator.name}</p>
-        <p>{creator.description}</p>
       </div>
       <div className="card-footer">
-        <a href={creator.url}>Visit YouTube Channel →</a>
-        <FaRegEdit onClick={() => handleEditClick(creator)} />
+        <FaInfoCircle onClick={() => handleClick(creator)} className="card-footer-icon"/>
+        <FaRegEdit onClick={() => handleEditClick(creator)} className="card-footer-icon"/>
       </div>
     </div>
   );

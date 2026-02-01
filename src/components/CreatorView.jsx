@@ -1,3 +1,5 @@
+import { FaYoutube } from "react-icons/fa";
+
 const CreatorView = ({ creator }) => {
   const username = creator.url.match(/@([^/]+)/)?.[1];
   return (
@@ -11,7 +13,7 @@ const CreatorView = ({ creator }) => {
           }}
         />
         <p>{creator.name}</p>
-        <p>{creator.url}</p>
+        <a href={creator.url}><FaYoutube size={35}/></a>
       </div>
       <div className="creator-view-info-container">
           <p>{creator.description}</p>
