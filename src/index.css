@@ -34,5 +34,6 @@
    Global Layout
 ========================= */
 html, body {
+  min-height: 100vh;
   background-color: var(--background-color);
 }

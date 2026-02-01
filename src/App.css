@@ -92,6 +92,7 @@
 .add-creator-btn {
   background-color: #001F3D;
   color: white;
+  font-weight: bold;
 }
 
 .add-creator-btn:hover {
@@ -105,10 +106,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px;
+  min-height: 100vh;
+}
+
+.add-creator-component h1 {
+  color: var(--color);
 }
 
 .add-creator-component input[type="text"], textarea[type="text"] {
   background-color: white;
   border: none;
+  color: var(--color);
+  width: 60%;
+}
+
+.add-creator-component input[type="submit"] {
+  width: 60%;
+  font-weight: bold;
+  background-color: #001F3D;
+}
+
+.add-creator-component input[type="submit"]:hover {
+  background-color: #213448
 }

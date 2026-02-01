@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { ShowCreators, AddCreator, EditCreator } from "./pages/index";
+import { ShowCreators, AddCreator, EditCreator, HeaderSection } from "./pages/index";
 import "@picocss/pico/css/pico.min.css";
 import { supabase } from "./client";
 import { useEffect } from "react";
@@ -25,6 +25,7 @@ function App() {
 
   return (
     <>
+      <HeaderSection />
       <Routes>
         <Route path="/" element={<ShowCreators />} />
         <Route path="/add-creator" element={<AddCreator />} />
