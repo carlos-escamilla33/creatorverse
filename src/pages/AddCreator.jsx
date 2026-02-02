@@ -6,6 +6,8 @@ const AddCreator = () => {
   const {
     creatorName,
     youtubeURL,
+    twitterURL,
+    instagramURL,
     description,
     setCurrentCreator,
     setCreators,
@@ -22,7 +24,9 @@ const AddCreator = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const newCreator = { name: creatorName, url: youtubeURL, description };
+    const newCreator = { name: creatorName, youtubeURL, twitterURL, instagramURL, description };
+
+    console.log(newCreator);
 
     const insertCreator = async () => {
       try {
@@ -30,7 +34,9 @@ const AddCreator = () => {
           .from("creators")
           .insert({
             name: newCreator.name,
-            url: newCreator.url,
+            youtubeURL: newCreator.youtubeURL,
+            instagramURL: newCreator.instagramURL,
+            twitterURL: newCreator.twitterURL,
             description: newCreator.description,
           })
           .select();

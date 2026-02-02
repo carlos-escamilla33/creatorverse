@@ -13,7 +13,6 @@ function App() {
     const fetchCreators = async () => {
       try {
         const {data} = await supabase.from("creators").select();
-        console.log(data);
         setCreators(data);
       } catch (err) {
         console.log(err);

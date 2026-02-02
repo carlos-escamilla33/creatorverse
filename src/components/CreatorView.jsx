@@ -1,7 +1,7 @@
 import { FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const CreatorView = ({ creator }) => {
-  const username = creator.url.match(/@([^/]+)/)?.[1];
+  const username = creator.youtubeURL.match(/@([^/]+)/)?.[1];
   return (
     <div className="view-creator container-fluid">
       <div className="img-view-container">
@@ -14,13 +14,13 @@ const CreatorView = ({ creator }) => {
         />
         <h3>{creator.name}</h3>
         <div className="creator-view-socials">
-          <a href={creator.url}>
+          <a href={creator.youtubeURL}>
             <FaYoutube size={35} />
           </a>
-          <a href={creator.url}>
+          <a href={creator.twitterURL}>
             <FaTwitter size={35} />
           </a>
-          <a href={creator.url}>
+          <a href={creator.instagramURL}>
             <FaInstagram size={35} />
           </a>
         </div>

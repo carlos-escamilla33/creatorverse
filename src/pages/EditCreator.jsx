@@ -9,6 +9,8 @@ const EditCreator = () => {
     currentCreator,
     creatorName,
     youtubeURL,
+    twitterURL,
+    instagramURL,
     description,
     setCurrentCreator,
     handleCreatorNameChange,
@@ -27,7 +29,9 @@ const EditCreator = () => {
     const updatedCreator = {
       id: currentCreator.id,
       name: creatorName,
-      url: youtubeURL,
+      youtubeURL,
+      twitterURL,
+      instagramURL,
       description,
     };
 
@@ -36,13 +40,14 @@ const EditCreator = () => {
         const { data, error } = await supabase
           .from("creators")
           .update({
-            name: updatedCreator.name,
-            url: updatedCreator.url,
-            description: updatedCreator.description,
+            name: updateCreator.name,
+            youtubeURL: updateCreator.youtubeURL,
+            instagramURL: updateCreator.instagramURL,
+            twitterURL: updateCreator.twitterURL,
+            description: updateCreator.description,
           })
           .eq("id", updatedCreator.id)
           .select();
-        console.log(data[0]);
         if (data[0]) {
           setCreators((prevCreators) =>
             prevCreators.map((creator) =>
@@ -65,13 +70,12 @@ const EditCreator = () => {
           .delete()
           .eq("id", currentCreator.id)
           .select();
-        console.log(data[0]);
         if (data[0]) {
           setCreators((prevCreators) =>
             prevCreators.filter((creator) => creator.id !== data[0].id),
           );
         } else {
-            throw error;
+          throw error;
         }
       } catch (err) {
         console.log(err);
@@ -90,7 +94,10 @@ const EditCreator = () => {
   };
 
   return (
-    <form className="container edit-creator-component" onSubmit={handleEditFormSubmission}>
+    <form
+      className="container edit-creator-component"
+      onSubmit={handleEditFormSubmission}
+    >
       <h1>Edit Creator</h1>
       <input
         type="text"
@@ -113,6 +120,7 @@ const EditCreator = () => {
         name="Twitter url"
         placeholder="Twitter URL"
         onChange={handleTwitterURLChange}
+        value={twitterURL}
         aria-label="Text"
       />
       <input
@@ -120,6 +128,7 @@ const EditCreator = () => {
         name="Instagram url"
         placeholder="Instagram URL"
         onChange={handleInstagramURLChange}
+        value={instagramURL}
         aria-label="Text"
       />
       <textarea

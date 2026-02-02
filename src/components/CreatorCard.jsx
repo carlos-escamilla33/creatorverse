@@ -3,20 +3,30 @@ import { useCreator } from "../hooks/useCreators";
 import { FaInfoCircle, FaRegEdit } from "react-icons/fa";
 
 const CreatorCard = ({ creator }) => {
-  const username = creator.url.match(/@([^/]+)/)?.[1];
-  const { setCurrentCreator, setCreatorName, setYoutubeURL, setDescription } =
-    useCreator();
+  const username = creator.youtubeURL.match(/@([^/]+)/)?.[1];
+  const {
+    setCurrentCreator,
+    setCreatorName,
+    setYoutubeURL,
+    setInstagramURL,
+    setTwitterURL,
+    setDescription,
+  } = useCreator();
   const navigate = useNavigate();
 
   const handleClick = (creator) => {
+    console.log(creator);
     setCurrentCreator(creator);
     navigate("/view-creator");
   };
 
   const handleEditClick = (creator) => {
+    console.log(creator);
     setCurrentCreator(creator);
     setCreatorName(creator.name);
-    setYoutubeURL(creator.url);
+    setYoutubeURL(creator.youtubeURL);
+    setTwitterURL(creator.twitterURL);
+    setInstagramURL(creator.instagramURL);
     setDescription(creator.description);
     setCurrentCreator(creator);
     navigate("/edit-creator");
@@ -34,8 +44,14 @@ const CreatorCard = ({ creator }) => {
         <p>{creator.name}</p>
       </div>
       <div className="card-footer">
-        <FaInfoCircle onClick={() => handleClick(creator)} className="card-footer-icon"/>
-        <FaRegEdit onClick={() => handleEditClick(creator)} className="card-footer-icon"/>
+        <FaInfoCircle
+          onClick={() => handleClick(creator)}
+          className="card-footer-icon"
+        />
+        <FaRegEdit
+          onClick={() => handleEditClick(creator)}
+          className="card-footer-icon"
+        />
       </div>
     </div>
   );
