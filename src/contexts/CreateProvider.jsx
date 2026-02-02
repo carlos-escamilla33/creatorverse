@@ -11,6 +11,23 @@ export const CreatorProvider = ({ children }) => {
   const [currentCreator, setCurrentCreator] = useState({});
   const [isAddBtnClicked, setIsAddBtnClicked] = useState(false);
 
+  const validLink = (youtubeLink, twitterLink, instagramLink) => {
+    let username;
+    let link;
+    if (youtubeLink) {
+      username = youtubeLink.match(/@([^/]+)/)?.[1];
+      link = `https://unavatar.io/youtube/${username}`;
+    } else if (twitterLink) {
+      username = twitterLink.match(/@([^/]+)/)?.[1];
+      link = `https://unavatar.io/twitter/${username}`;
+    } else if (instagramLink) {
+      username = instagramLink.match(/@([^/]+)/)?.[1];
+      link = `https://unavatar.io/instagram/${username}`;
+    }
+
+    return link;
+  };
+
   const handleCreatorNameChange = (e) => {
     setCreatorName(e.target.value);
   };
@@ -52,7 +69,8 @@ export const CreatorProvider = ({ children }) => {
     handleInstagramURLChange,
     handleDescriptionChange,
     isAddBtnClicked,
-    setIsAddBtnClicked
+    setIsAddBtnClicked,
+    validLink,
   };
 
   return (

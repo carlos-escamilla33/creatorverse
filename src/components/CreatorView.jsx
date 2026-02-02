@@ -1,12 +1,18 @@
 import { FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
+import { useCreator } from "../hooks/useCreators";
 
 const CreatorView = ({ creator }) => {
-  const username = creator.youtubeURL.match(/@([^/]+)/)?.[1];
+  const { validLink } = useCreator();
+  const socialLink = validLink(
+    creator.youtubeURL,
+    creator.twitterURL,
+    creator.instagramURL,
+  );
   return (
     <div className="view-creator">
       <div className="img-view-container">
         <img
-          src={`https://unavatar.io/youtube/${username}`}
+          src={socialLink}
           alt={`${creator.name} avatar`}
           onError={(e) => {
             e.target.src = "https://via.placeholder.com/150?text=No+Image";

@@ -3,7 +3,6 @@ import { useCreator } from "../hooks/useCreators";
 import { FaInfoCircle, FaRegEdit } from "react-icons/fa";
 
 const CreatorCard = ({ creator }) => {
-  const username = creator.youtubeURL.match(/@([^/]+)/)?.[1];
   const {
     setCurrentCreator,
     setCreatorName,
@@ -11,8 +10,14 @@ const CreatorCard = ({ creator }) => {
     setInstagramURL,
     setTwitterURL,
     setDescription,
+    validLink,
   } = useCreator();
   const navigate = useNavigate();
+  const socialLink = validLink(
+    creator.youtubeURL,
+    creator.twitterURL,
+    creator.instagramURL,
+  );
 
   const handleClick = (creator) => {
     setCurrentCreator(creator);
@@ -34,7 +39,7 @@ const CreatorCard = ({ creator }) => {
     <div className="creator-card">
       <div className="creator-avatar">
         <img
-          src={`https://unavatar.io/youtube/${username}`}
+          src={socialLink}
           alt={`${creator.name} avatar`}
           onError={(e) => {
             e.target.src = "https://via.placeholder.com/150?text=No+Image";
