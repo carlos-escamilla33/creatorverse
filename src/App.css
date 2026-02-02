@@ -192,3 +192,8 @@
 .creator-view-socials a {
   padding: 10px;
 }
+
+.creator-view-info-container {
+  width: 50%;
+  text-align: center;
+}

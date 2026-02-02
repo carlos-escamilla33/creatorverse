@@ -15,7 +15,6 @@ const CreatorCard = ({ creator }) => {
   const navigate = useNavigate();
 
   const handleClick = (creator) => {
-    console.log(creator);
     setCurrentCreator(creator);
     navigate("/view-creator");
   };

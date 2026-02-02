@@ -9,6 +9,7 @@ export const CreatorProvider = ({ children }) => {
   const [description, setDescription] = useState("");
   const [creators, setCreators] = useState([]);
   const [currentCreator, setCurrentCreator] = useState({});
+  const [isAddBtnClicked, setIsAddBtnClicked] = useState(false);
 
   const handleCreatorNameChange = (e) => {
     setCreatorName(e.target.value);
@@ -50,6 +51,8 @@ export const CreatorProvider = ({ children }) => {
     handleTwitterURLChange,
     handleInstagramURLChange,
     handleDescriptionChange,
+    isAddBtnClicked,
+    setIsAddBtnClicked
   };
 
   return (

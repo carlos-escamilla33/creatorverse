@@ -1,9 +1,9 @@
 import { useNavigate, NavLink } from "react-router-dom";
-import { useState } from "react";
 import creatorImg from "../assets/creator.png";
+import { useCreator } from "../hooks/useCreators";
 
 const HeaderSection = () => {
-    const [isAddBtnClicked, setIsAddBtnClicked] = useState(false);
+    const {isAddBtnClicked, setIsAddBtnClicked} = useCreator();
     const navigate = useNavigate();
 
     const handleHeaderImgClick = () => {

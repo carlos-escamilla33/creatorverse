@@ -3,7 +3,7 @@ import { FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 const CreatorView = ({ creator }) => {
   const username = creator.youtubeURL.match(/@([^/]+)/)?.[1];
   return (
-    <div className="view-creator container-fluid">
+    <div className="view-creator">
       <div className="img-view-container">
         <img
           src={`https://unavatar.io/youtube/${username}`}

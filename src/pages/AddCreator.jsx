@@ -17,6 +17,7 @@ const AddCreator = () => {
     handleTwitterURLChange,
     handleInstagramURLChange,
     handleDescriptionChange,
+    setIsAddBtnClicked
   } = useCreator();
 
   const navigate = useNavigate();
@@ -25,8 +26,6 @@ const AddCreator = () => {
     e.preventDefault();
 
     const newCreator = { name: creatorName, youtubeURL, twitterURL, instagramURL, description };
-
-    console.log(newCreator);
 
     const insertCreator = async () => {
       try {
@@ -40,7 +39,6 @@ const AddCreator = () => {
             description: newCreator.description,
           })
           .select();
-        console.log(data[0]);
         if (data[0]) {
           setCreators([...creators, data[0]]);
           setCurrentCreator(data[0]);
@@ -52,6 +50,7 @@ const AddCreator = () => {
       }
     };
     insertCreator();
+    setIsAddBtnClicked(false);
     navigate("/");
   };
 
