@@ -18,8 +18,8 @@ export const CreatorProvider = ({ children }) => {
       username = youtubeLink.match(/@([^/]+)/)?.[1];
       link = `https://unavatar.io/youtube/${username}`;
     } else if (twitterLink) {
-      username = twitterLink.match(/@([^/]+)/)?.[1];
-      link = `https://unavatar.io/twitter/${username}`;
+      username = twitterLink.match(/\/([^/]+)\/?$/)?.[1];
+      link = `https://unavatar.io/x/${username}`;
     } else if (instagramLink) {
       username = instagramLink.match(/@([^/]+)/)?.[1];
       link = `https://unavatar.io/instagram/${username}`;

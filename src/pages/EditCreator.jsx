@@ -40,11 +40,12 @@ const EditCreator = () => {
         const { data, error } = await supabase
           .from("creators")
           .update({
-            name: updateCreator.name,
-            youtubeURL: updateCreator.youtubeURL,
-            instagramURL: updateCreator.instagramURL,
-            twitterURL: updateCreator.twitterURL,
-            description: updateCreator.description,
+            name: updatedCreator.name,
+            youtubeURL: updatedCreator.youtubeURL,
+            instagramURL: updatedCreator.instagramURL,
+            twitterURL: updatedCreator.twitterURL,
+            description: updatedCreator.description,
+            imageURL: null
           })
           .eq("id", updatedCreator.id)
           .select();
