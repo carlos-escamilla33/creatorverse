@@ -1,6 +1,7 @@
 import { supabase } from "../client";
 import { useCreator } from "../hooks/useCreators";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const AddCreator = () => {
   const {
@@ -19,13 +20,25 @@ const AddCreator = () => {
     handleDescriptionChange,
     setIsAddBtnClicked
   } = useCreator();
-
+  const [errorName, setErrorName] = useState(null);
+  const [errorDescription, setErrorDescription] = useState(null);
   const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     const newCreator = { name: creatorName, youtubeURL, twitterURL, instagramURL, description };
+
+    if (newCreator.name.length < 1) {
+        setErrorName("Enter a creator name...");
+        return;
+    }
+    setErrorName(null);
+    if (newCreator.description.length < 1) {
+        setErrorDescription("Please enter a description...")
+        return;
+    }
+    setErrorDescription(null);
 
     const insertCreator = async () => {
       try {
@@ -64,6 +77,7 @@ const AddCreator = () => {
         aria-label="Text"
         onChange={handleCreatorNameChange}
       />
+      {errorName && <p style={{color: "red"}}>{errorName}</p>}
       <input
         type="text"
         name="Youtube url"
@@ -92,6 +106,7 @@ const AddCreator = () => {
         aria-label="Short description"
         onChange={handleDescriptionChange}
       />
+      {errorDescription && <p style={{color: "red"}}>{errorDescription}</p>}
       <input type="submit" />
     </form>
   );
